@@ -3,7 +3,59 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="NxZavDev">
-	<main class="grid items-center min-h-screen place-items-center">
-		<h1 class="text-5xl font-bold">Próximamente...</h1>
-	</main>
+  <main class="flex flex-col min-h-screen justify-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 tracking-wider">
+      Próximamente
+      <span class="dot1">. </span>
+      <span class="dot2">. </span>
+      <span class="dot3">.</span>
+    </h1>
+  </main>
 </Layout>
+
+<style>
+  .dot1 {
+    animation: dot1 4s infinite;
+  }
+  .dot2 {
+    animation: dot2 4s infinite;
+  }
+  .dot3 {
+    animation: dot3 4s infinite;
+  }
+
+  @keyframes dot1 {
+    0% {
+      opacity: 0%;
+    }
+    25% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+  @keyframes dot2 {
+    0% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+
+  @keyframes dot3 {
+    0% {
+      opacity: 0%;
+    }
+    75% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+</style>
