@@ -13,7 +13,7 @@ import Layout from "../layouts/Layout.astro";
       <span class="dot3">.</span>
     </h1>
   </main>
-  <div id="blob"></div>
+  <div id="blob" class="w-96"></div>
 </Layout>
 
 <script>
@@ -35,18 +35,19 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
+  main {
+    backdrop-filter: blur(160px);
+  }
   #blob {
     position: fixed;
     left: 50%;
     top: 50%;
-    background: linear-gradient(#fff, #f0f, #0ff);
-    height: 400px;
+    background: linear-gradient(#ff00ff, #00ffff);
     aspect-ratio: 1;
     translate: -50% -50%;
     border-radius: 50%;
     z-index: -1;
     animation: rotate 20s infinite;
-    filter: blur(100px);
   }
   .dot1 {
     animation: dot1 4s infinite;
@@ -61,7 +62,11 @@ import Layout from "../layouts/Layout.astro";
   @keyframes rotate {
     from {
       rotate: 0deg;
-    } to {
+    }
+    50% {
+      scale: 1 1.5;
+    }
+    to {
       rotate: 360deg;
     }
   }
