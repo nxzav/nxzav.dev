@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="NxZ | Web and e-commerce solutions">
@@ -13,9 +13,41 @@ import Layout from '../layouts/Layout.astro';
       <span class="dot3">.</span>
     </h1>
   </main>
+  <div id="blob"></div>
 </Layout>
 
+<script>
+  const blob = document.getElementById("blob");
+
+  document.body.onpointermove = (event) => {
+    const { clientX, clientY } = event;
+
+    if (blob) {
+      blob.animate(
+        {
+          left: `${clientX}px`,
+          top: `${clientY}px`,
+        },
+        { duration: 2000, fill: "forwards" }
+      );
+    }
+  };
+</script>
+
 <style>
+  #blob {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: linear-gradient(#fff, #f0f, #0ff);
+    height: 400px;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotate 20s infinite;
+    filter: blur(100px);
+  }
   .dot1 {
     animation: dot1 4s infinite;
   }
@@ -24,6 +56,14 @@ import Layout from '../layouts/Layout.astro';
   }
   .dot3 {
     animation: dot3 4s infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    } to {
+      rotate: 360deg;
+    }
   }
 
   @keyframes dot1 {
