@@ -4,16 +4,14 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="NxZ | Web and e-commerce solutions">
   <main class="flex flex-col min-h-screen justify-center">
-    <h1 class="text-4xl md:text-5xl font-bold text-center tracking-wider">
-      Próximamente
-    </h1>
-    <h1 class="text-5xl md:text-6xl font-bold text-center tracking-wider">
+    <h1 class="text-4xl font-bold text-center tracking-wider">PRÓXIMAMENTE</h1>
+    <h1 class="text-3xl md:text-4xl font-bold text-center tracking-wider">
       <span class="dot1">. </span>
       <span class="dot2">. </span>
       <span class="dot3">.</span>
     </h1>
   </main>
-  <div id="blob" class="w-96"></div>
+  <div id="blob" class="w-[70vh]"></div>
 </Layout>
 
 <script>
@@ -22,15 +20,14 @@ import Layout from "../layouts/Layout.astro";
   document.body.onpointermove = (event) => {
     const { clientX, clientY } = event;
 
-    if (blob) {
+    blob &&
       blob.animate(
         {
           left: `${clientX}px`,
           top: `${clientY}px`,
         },
-        { duration: 2000, fill: "forwards" }
+        { duration: 10000, fill: "forwards" }
       );
-    }
   };
 </script>
 
@@ -43,11 +40,13 @@ import Layout from "../layouts/Layout.astro";
     left: 50%;
     top: 50%;
     background: linear-gradient(#ff00ff, #00ffff);
+    background-position: left;
     aspect-ratio: 1;
     translate: -50% -50%;
     border-radius: 50%;
     z-index: -1;
-    animation: rotate 20s infinite;
+    animation: breath 10s infinite;
+    animation-timing-function: ease-out;
   }
   .dot1 {
     animation: dot1 4s infinite;
@@ -59,15 +58,19 @@ import Layout from "../layouts/Layout.astro";
     animation: dot3 4s infinite;
   }
 
-  @keyframes rotate {
-    from {
-      rotate: 0deg;
+  @keyframes breath {
+    0% {
+      scale: 0;
     }
-    50% {
-      scale: 1 1.5;
+    60% {
+      scale: 1;
     }
-    to {
+    80% {
+      scale: 0.5;
+    }
+    100% {
       rotate: 360deg;
+      scale: 0;
     }
   }
 
