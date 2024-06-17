@@ -1,0 +1,94 @@
+---
+import LogoSVG from '../icons/Logo.astro';
+---
+
+<header>
+  <nav>
+    <div class="nav-section" id="nav-section-logo">
+      <a href="#">
+        <LogoSVG />
+      </a>
+    </div>
+    <div class="nav-section" id="nav-section-links">
+      <a class="nav-section-link" href="#">About</a>
+      <a class="nav-section-link" href="#">Work</a>
+    </div>
+    <div class="nav-section" id="nav-section-social">
+      <a target="_blank" href="https://github.com/nxzav"><i class="nav-section-link fa-brands fa-github"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/nxzavala/"><i class="nav-section-link fa-brands fa-linkedin"></i></a>
+    </div>
+    <div class="nav-section" id="nav-section-contact">
+      <a class="nav-section-link" href="mailto:hello@nxzav.dev">CONTACT ME</a>
+    </div>
+    <div class="nav-section" id="nav-btn">
+      <h1>III</h1>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    color: #efefef;
+    box-shadow: 0 1px #2d3348;
+  }
+  nav {
+    display: flex;
+    height: min(80px, 10vh);
+  }
+  nav a {
+    color: #efefef;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+  }
+  #nav-section-links,
+  #nav-section-social,
+  #nav-section-contact {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    nav {
+      justify-content: space-between;
+    }
+    #nav-section-logo {
+      padding-left: 1.5rem;
+    }
+    #nav-btn {
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    #nav-btn {
+      display: none;
+    }
+    .nav-section-link {
+      transition: opacity 200ms;
+    }
+    .nav-section:hover .nav-section-link:hover {
+      opacity: 1;
+    }
+    .nav-section:hover .nav-section-link {
+      opacity: 0.5;
+    }
+    #nav-section-logo,
+    #nav-section-links {
+      display: flex;
+      flex-basis: calc(100% / 3);
+      border-right: 1px solid #2d3348;
+    }
+    #nav-section-social,
+    #nav-section-contact {
+      display: flex;
+      flex-grow: 1;
+    }
+    #nav-section-social {
+      border-right: 1px solid #2d3348;
+      font-size: 1.25rem;
+    }
+  }
+</style>
