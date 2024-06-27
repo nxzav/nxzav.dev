@@ -1,58 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Aside from '../components/Aside.astro';
 import Loading from '../components/Loading.astro';
-import Blob from '../components/Blob.astro';
 ---
 
 <Layout title="Noé Zavala | Web developer">
   <Header />
+  <Aside />
   <main>
-    <div id="main-slider-wrapper">
-      <Loading> UNDER CONSTRUCTION . . .</Loading>
+    <div id="text-container">
+      <Loading> UNDER CONSTRUCTION</Loading>
     </div>
-    <div id="main-side-content"></div>
-    <div id="main-bottom-content"></div>
-    <div></div>
   </main>
-  <Footer />
-  <Blob />
+  <!-- <Footer /> -->
+  <!-- <Blob /> -->
 
   <style>
     main {
-      flex-grow: 1;
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 50vh 1fr 1fr;
-      place-items: center;
-      color: #efefef;
-    }
-    main > div {
-      padding: 2rem;
-      width: 100%;
-      height: 100%;
-    }
-    #main-slider-wrapper {
-      display: grid;
-      text-align: center;
       place-content: center;
-      border-right: 1px solid #2d3348;
-      border-bottom: 1px solid #2d3348;
+      min-height: 100vh;
+      grid-column: 2;
+      color: #ffffff;
     }
-    #main-side-content {
-      border-bottom: 1px solid #2d3348;
+    #text-container {
+      padding-left: 4rem;
     }
-    #main-bottom-content {
-      border-right: 1px solid #2d3348;
-    }
-    @media (max-width: 767px) {
-    }
-    @media (min-width: 768px) {
+    @media (max-width: 1079px) {
       main {
-        padding: 0rem;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 25vh;
+        min-height: 65vh;
+        position: relative;
+        grid-column: 1;
+      }
+      #text-container {
+        padding: 0;
+        text-align: center;
       }
     }
   </style>

@@ -1,0 +1,83 @@
+---
+
+---
+
+<aside>
+  <div id="contact-me"><a href="mailto:hello@nxzav.dev">Contact me!</a></div>
+  <nav>
+    <a target="_blank" href="https://github.com/nxzav"><i class="fa-brands fa-github"></i></a>
+    <a target="_blank" href="https://www.linkedin.com/in/nxzavala/"><i class="fa-brands fa-linkedin-in"></i></i></a>
+  </nav>
+  <div></div>
+</aside>
+
+<style>
+  aside {
+    min-height: 100vh;
+    position: fixed;
+    grid-column: 3;
+    display: grid;
+    grid-template-rows: 144px auto 144px;
+    align-content: space-between;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+  }
+  nav a {
+    text-align: center;
+    display: block;
+    width: fit-content;
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px;
+    aspect-ratio: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background 100ms;
+    font-size: 1.5rem;
+  }
+  nav a:hover {
+    background-color: #ffffff22;
+  }
+  #contact-me {
+    padding-top: 5rem;
+    text-transform: uppercase;
+  }
+  #contact-me a {
+    padding: 0.8rem;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-decoration: none;
+    box-shadow: 0 0 0 2px #ffffff;
+    transition: all 200ms;
+  }
+  #contact-me a:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  @media (max-width: 1079px) {
+    aside {
+      position: relative;
+      grid-column: 1;
+      grid-row: 3;
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      align-items: center;
+      min-height: auto;
+      position: relative;
+    }
+    nav {
+      flex-direction: row;
+    }
+    #contact-me {
+      padding: 0;
+    }
+  }
+</style>

@@ -2,14 +2,18 @@
 
 <style>
   h1 {
-    animation: breath 4s infinite linear;
+    font-size: clamp(2.4rem, 7vw, 10rem);
+    animation: breath 4s infinite linear; */
   }
-  @keyframes breath {
+@keyframes breath {
     from {
       opacity: 1;
     }
-    33% {
-      opacity: 0.2;
+    25% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
     }
     to {
       opacity: 1;

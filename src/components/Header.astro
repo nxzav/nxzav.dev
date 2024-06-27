@@ -3,92 +3,66 @@ import LogoSVG from '../icons/Logo.astro';
 ---
 
 <header>
+  <div id="logo-section">
+    <a href="/">
+      <LogoSVG />
+    </a>
+  </div>
   <nav>
-    <div class="nav-section" id="nav-section-logo">
-      <a href="#">
-        <LogoSVG />
-      </a>
-    </div>
-    <div class="nav-section" id="nav-section-links">
-      <a class="nav-section-link" href="#">About</a>
-      <a class="nav-section-link" href="#">Work</a>
-    </div>
-    <div class="nav-section" id="nav-section-social">
-      <a target="_blank" href="https://github.com/nxzav"><i class="nav-section-link fa-brands fa-github"></i></a>
-      <a target="_blank" href="https://www.linkedin.com/in/nxzavala/"><i class="nav-section-link fa-brands fa-linkedin"></i></a>
-    </div>
-    <div class="nav-section" id="nav-section-contact">
-      <a class="nav-section-link" href="mailto:hello@nxzav.dev">CONTACT ME</a>
-    </div>
-    <div class="nav-section" id="nav-btn">
-      <h1>III</h1>
-    </div>
+    <a href="#">Services</a>
+    <a href="#">Products</a>
+    <a href="#">Work</a>
   </nav>
 </header>
 
 <style>
   header {
-    color: #efefef;
-    box-shadow: 0 1px #2d3348;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 144px auto 144px;
+    align-content: space-between;
+    position: fixed;
+    min-height: 100vh;
+    top: 0;
+    z-index: 1;
+  }
+  #logo-section {
+    padding-top: 2rem;
   }
   nav {
     display: flex;
-    height: min(80px, 10vh);
+    flex-direction: column;
+    row-gap: 1rem;
   }
   nav a {
-    color: #efefef;
-    font-weight: 500;
+    display: block;
+    width: fit-content;
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px;
+    text-transform: uppercase;
     text-decoration: none;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background 100ms;
   }
-  .nav-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 2rem;
+  nav a:hover {
+    background-color: #ffffff22;
   }
-  #nav-section-links,
-  #nav-section-social,
-  #nav-section-contact {
-    display: none;
-  }
-  @media (max-width: 767px) {
-    nav {
+  @media (max-width: 1079px) {
+    header {
+      padding: 1rem 0;
+      display: flex;
+      min-height: auto;
+      position: relative;
+      grid-column: 1;
       justify-content: space-between;
     }
-    #nav-section-logo {
-      padding-left: 1.5rem;
+    nav {
+      flex-direction: row;
+      align-items: center;
     }
-    #nav-btn {
-      padding-right: 1.5rem;
-    }
-  }
-  @media (min-width: 768px) {
-    #nav-btn {
-      display: none;
-    }
-    .nav-section-link {
-      transition: opacity 200ms;
-    }
-    .nav-section:hover .nav-section-link:hover {
-      opacity: 1;
-    }
-    .nav-section:hover .nav-section-link {
-      opacity: 0.5;
-    }
-    #nav-section-logo,
-    #nav-section-links {
-      display: flex;
-      flex-basis: calc(100% / 3);
-      border-right: 1px solid #2d3348;
-    }
-    #nav-section-social,
-    #nav-section-contact {
-      display: flex;
-      flex-grow: 1;
-    }
-    #nav-section-social {
-      border-right: 1px solid #2d3348;
-      font-size: 1.25rem;
+    #logo-section {
+      padding: 0;
     }
   }
 </style>
