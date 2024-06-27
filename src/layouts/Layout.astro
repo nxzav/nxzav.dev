@@ -13,16 +13,18 @@ const { title } = Astro.props;
     <meta name="description" content="Want to get online? Contact me!" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <div class="wrapper">
-      <slot />
+    <div class="site-wrapper">
+      <div class="content-wrapper">
+        <slot />
+      </div>
     </div>
   </body>
 </html>
@@ -30,7 +32,7 @@ const { title } = Astro.props;
   :root {
     --white: #ffffff;
     --dark: #0d1014;
-    --crimson: #DC143C;
+    --crimson: #dc143c;
   }
   *,
   ::before,
@@ -42,10 +44,18 @@ const { title } = Astro.props;
   body {
     margin: 0;
     background: var(--dark);
-    font-family: 'Rubik', system-ui, -apple-system, sans-serif;
+    font-family:
+      'Rubik',
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
-  .wrapper {
-    padding: 0 4rem;
+  .site-wrapper {
+    padding: 0 2rem;
+  }
+  .content-wrapper {
+    margin: 0 auto;
+    max-width: 1600px;
     display: grid;
     grid-template-columns: 144px auto 144px;
     overflow-x: hidden;
@@ -65,7 +75,10 @@ const { title } = Astro.props;
     background-color: #1f2530;
   }
   @media (max-width: 1079px) {
-    .wrapper {
+    .site-wrapper {
+      padding: 0;
+    }
+    .content-wrapper {
       padding: 0 0.75rem;
       grid-template-columns: 1fr;
     }
